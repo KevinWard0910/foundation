@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+
+def PKG_NAME = "com.kevin.foundation"
+
+//加载签名配置的文件
+Properties props = new Properties()
+props.load(new FileInputStream(file("signing.properties")))
+
+android {
+
+    // 签名配置
+    signingConfigs {
+        DefaultConfig {
+            keyAlias props['KEY_ALIAS']
+            keyPassword props['KEY_PASSWORD']
+            storeFile file(props['KEYSTORE_FILE'])
+            storePassword props['KEYSTORE_PASSWORD']
+        }
+    }
+//
+//    dataBinding {
+//        enabled true
+//    }
+
+    // 编译sdk版本
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId PKG_NAME
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName // 版本号
+
+        // dex突破65535的限制
+        multiDexEnabled true
+
+        // Android 单元测试 test runner
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters /*'armeabi',*/ 'armeabi-v7a'/*, 'armeabi-v8a'*/
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+    }
+    buildTypes {
+        debug {
+            debuggable true
+//            // 读取设置的签名文件
+//            signingConfig signingConfigs.DefaultConfig
+            // 不进行代码优化
+            minifyEnabled false
+//            // 不进行zip对齐
+//            zipAlignEnabled false
+        }
+        // release 包的配置
+        release {
+//            // 启用资源压缩 因为您可能需要编辑 proguard-rules.pro 文件以保留动态创建或调用的类或方法，然后再开始移除资源
+//            shrinkResources true
+            // 开启代码压缩
+            minifyEnabled true
+            // 指定混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // 指定签名配置
+            signingConfig signingConfigs.DefaultConfig
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':base')
+//    implementation rootProject.ext.dependencies["support-v4"]
+//    implementation rootProject.ext.dependencies["appcompat-v7"]
+}

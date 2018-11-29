@@ -1,0 +1,24 @@
+ext{
+    versionCode = 1
+    versionName = "1.0.0"
+    minSdkVersion=19
+    targetSdkVersion =28
+    compileSdkVersion=28
+    supportLibraryVersion="28.0.0"
+    supportLibraryVersion2="28.0.0"
+
+    dependencies = [
+            "support-v4"              : "com.android.support:support-v4:${supportLibraryVersion2}",
+            "appcompat-v7"            : "com.android.support:appcompat-v7:${supportLibraryVersion2}",
+            "design"                  : "com.android.support:design:${supportLibraryVersion2}",
+            "recyclerview-v7"         : "com.android.support:recyclerview-v7:${supportLibraryVersion2}",
+            "cardview"                : "com.android.support:cardview-v7:${supportLibraryVersion2}",
+            "support-core-utils"      : "com.android.support:support-core-utils:${supportLibraryVersion2}",
+            "okhttp3"                 : "com.squareup.okhttp3:okhttp:3.4.1",
+            "okio"                    : "com.squareup.okio:okio:1.6.0",
+            "gson"                    : "com.google.code.gson:gson:2.6.1",
+            "multidex"                : "com.android.support:multidex:1.0.1",
+            "junit"                   : "junit:junit:4.12",
+            "easypermissions"         : "pub.devrel:easypermissions:0.4.3",
+    ]
+}

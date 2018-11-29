@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+
+def MODULE_NAME = 'r_'
+
+android {
+
+    dataBinding {
+        enabled true
+    }
+
+    // 编译sdk版本
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    // 资源前缀
+    resourcePrefix MODULE_NAME
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName MODULE_NAME + rootProject.ext.versionName // 版本号
+        // dex突破65535的限制
+        multiDexEnabled true
+
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled true
+        }
+        // release 包的配置
+        release {
+            // 启用资源压缩 因为您可能需要编辑 proguard-rules.pro 文件以保留动态创建或调用的类或方法，然后再开始移除资源
+//            shrinkResources true
+            // 开启代码压缩
+            minifyEnabled false
+            // 对齐
+            zipAlignEnabled true
+            // 指定混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':base')
+}

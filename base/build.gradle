@@ -1,0 +1,64 @@
+apply plugin: 'com.android.library'
+def MODULE_NAME = 'b'
+android {
+    // 编译sdk版本
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+
+    // 资源前缀
+    resourcePrefix MODULE_NAME + '_'
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName // 版本号
+        versionNameSuffix '_' + MODULE_NAME
+        // dex突破65535的限制
+        multiDexEnabled true
+
+        // dex突破65535的限制
+        multiDexEnabled true
+
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+        // release 包的配置
+        release {
+            // 启用资源压缩 因为您可能需要编辑 proguard-rules.pro 文件以保留动态创建或调用的类或方法，然后再开始移除资源
+//            shrinkResources true
+            // 开启代码压缩
+            minifyEnabled false
+            // 对齐
+            zipAlignEnabled true
+            // 指定混淆文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation "com.android.support:support-v4:27.1.1"
+//    implementation "com.android.support:appcompat-v7:27.1.1"
+    api rootProject.ext.dependencies["support-v4"]
+    api rootProject.ext.dependencies["appcompat-v7"]
+    implementation rootProject.ext.dependencies["recyclerview-v7"]
+    api rootProject.ext.dependencies["easypermissions"]
+    compile rootProject.ext.dependencies["okhttp3"]
+    compile rootProject.ext.dependencies["okio"]
+//    implementation rootProject.ext.dependencies["design"]
+//    implementation rootProject.ext.dependencies["easypermissions"]
+//    implementation rootProject.ext.dependencies["cardview"]
+//    implementation rootProject.ext.dependencies["support-core-utils"]
+
+//    implementation 'com.android.support:appcompat-v7:26.1.0'
+//    testImplementation 'junit:junit:4.12'
+//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
