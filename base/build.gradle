@@ -44,21 +44,24 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-//    implementation "com.android.support:support-v4:27.1.1"
-//    implementation "com.android.support:appcompat-v7:27.1.1"
+//    api "com.android.support:support-v4:27.1.1"
+//    api "com.android.support:appcompat-v7:27.1.1"
     api rootProject.ext.dependencies["support-v4"]
     api rootProject.ext.dependencies["appcompat-v7"]
-    implementation rootProject.ext.dependencies["recyclerview-v7"]
+    api rootProject.ext.dependencies["recyclerview-v7"]
     api rootProject.ext.dependencies["easypermissions"]
-    compile rootProject.ext.dependencies["okhttp3"]
-    compile rootProject.ext.dependencies["okio"]
-//    implementation rootProject.ext.dependencies["design"]
-//    implementation rootProject.ext.dependencies["easypermissions"]
-//    implementation rootProject.ext.dependencies["cardview"]
-//    implementation rootProject.ext.dependencies["support-core-utils"]
+    api rootProject.ext.dependencies["volley"]
+    api rootProject.ext.dependencies["httpcore"]
+    api rootProject.ext.dependencies["okhttp3"]
+    api rootProject.ext.dependencies["okio"]
+    api rootProject.ext.dependencies["gson"]
+    compile rootProject.ext.dependencies["glide-transformations"]
+    compile rootProject.ext.dependencies["glide"]
+//    api rootProject.ext.dependencies["design"]
+//    api rootProject.ext.dependencies["easypermissions"]
+//    api rootProject.ext.dependencies["cardview"]
 
-//    implementation 'com.android.support:appcompat-v7:26.1.0'
-//    testImplementation 'junit:junit:4.12'
-//    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-//    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    testApi 'junit:junit:4.12'
+    androidTestApi 'com.android.support.test:runner:1.0.2'
+    androidTestApi 'com.android.support.test.espresso:espresso-core:3.0.2'
 }

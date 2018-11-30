@@ -13,6 +13,7 @@ import android.util.Base64;
 import android.widget.Toast;
 
 import com.kevin.base.BaseApplication;
+import com.kevin.base.BaseFoundation;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -106,7 +107,7 @@ public class CommonUtil {
      * 获取版本号
      */
     public static String getVersionName() {
-        Context context = BaseApplication.getContext();
+        Context context = BaseFoundation.getContext();
         PackageManager manager = context.getPackageManager();
         PackageInfo info;
         try {
