@@ -1,30 +1,26 @@
 package com.kevin.base;
 
-import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 
+import com.kevin.base.utils.http.ILoginStatusListener;
+
 /**
- * Created by FJ on 2018/11/27.
- * descript：
+ * Created by kevin on 2018/11/27.
+ * descript：Application 基类
  */
 
-public class BaseApplication extends MultiDexApplication {
-
-    private static Context mContext;
+public abstract class BaseApplication extends MultiDexApplication implements ILoginStatusListener {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        mContext = this;
-
+        BaseFoundation.install(this);
     }
 
     @Override
     public void onTerminate() {
         super.onTerminate();
+        BaseFoundation.uninstall();
     }
 
-    public static Context getContext(){
-        return mContext;
-    }
 }

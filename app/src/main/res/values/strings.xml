@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Foundation</string>
+
+    <string name="fw_refresh">刷新一下试试</string>
+    <string name="fw_html_loading">努力加载中&#8230;</string>
+    <string name="image_upload">图片上传中</string>
+    <string name="fw_html_url_null">链接地址错误</string>
 </resources>

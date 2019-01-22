@@ -5,6 +5,7 @@ import android.view.Gravity;
 import android.widget.Toast;
 
 import com.kevin.base.BaseApplication;
+import com.kevin.base.BaseFoundation;
 import com.kevin.base.common.Constant;
 
 
@@ -16,19 +17,19 @@ public class ToastUtil {
     private static Toast mToast;
 
     public static void showToast(String text) {
-        showToast(BaseApplication.getContext(), text, Constant.IS_SHOT_TOAST);
+        showToast(BaseFoundation.getContext(), text, Constant.IS_SHOT_TOAST);
     }
 
     public static void showToast(int resId) {
-        showToast(BaseApplication.getContext(), resId, Constant.IS_SHOT_TOAST);
+        showToast(BaseFoundation.getContext(), resId, Constant.IS_SHOT_TOAST);
     }
 
     public static void showToast(String text, boolean isShowToast) {
-        showToast(BaseApplication.getContext(), text, isShowToast);
+        showToast(BaseFoundation.getContext(), text, isShowToast);
     }
 
     public static void showToast(int resId, boolean isShowToast) {
-        showToast(BaseApplication.getContext(), resId, isShowToast);
+        showToast(BaseFoundation.getContext(), resId, isShowToast);
     }
 
     private static void showToast(Context context, String text, boolean isShowToast) {

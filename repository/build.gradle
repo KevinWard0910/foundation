@@ -24,6 +24,15 @@ android {
 
     }
 
+    sourceSets {
+        debug {
+            java.srcDirs = ['src/debug', 'src/debug/java', 'src/debug/java/']
+        }
+        release {
+            java.srcDirs = ['src/release', 'src/release/java', 'src/release/java/']
+        }
+    }
+
     buildTypes {
         debug {
             debuggable true

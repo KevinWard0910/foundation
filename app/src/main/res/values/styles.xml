@@ -8,4 +8,43 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- base 单行样式-->
+    <style name="singleStyle">
+        <item name="android:textColor">@color/other_gray</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical</item>
+        <!--<item name="android:maxEms">10</item>-->
+        <!--<item name="android:singleLine">true</item>-->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- 主要正文 样式-->
+    <style name="infoStyle" parent="singleStyle">
+        <item name="android:textColor">@color/gray_c3c3c5</item>
+        <item name="android:textSize">@dimen/font_size_24</item>
+    </style>
+
+    <!--蓝色button的样式-->
+    <style name="BtnBlueStyle">
+        <item name="android:singleLine">true</item>
+        <item name="android:minWidth">@dimen/button_min_width</item>
+        <item name="android:background">@drawable/btn_blue_touch_selector</item>
+        <item name="android:textColor">@color/main_white</item>
+        <item name="android:textSize">@dimen/font_size_32</item>
+        <item name="android:paddingTop">@dimen/padding_15dp</item>
+        <item name="android:paddingBottom">@dimen/padding_15dp</item>
+        <item name="android:paddingLeft">@dimen/padding_15dp</item>
+        <item name="android:paddingRight">@dimen/padding_15dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- 蓝色边框button样式-->
+    <style name="BtnEdgeStyle" parent="BtnBlueStyle">
+        <item name="android:background">@drawable/btn_edge_blue_touch_selector</item>
+        <item name="android:textColor">@drawable/text_blue_selector</item>
+    </style>
+
 </resources>

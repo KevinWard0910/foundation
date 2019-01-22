@@ -4,6 +4,7 @@
 package com.kevin.base.utils;
 
 import com.kevin.base.BaseApplication;
+import com.kevin.base.BaseFoundation;
 
 /**
  * Created by kevin on 2018/11/29.
@@ -18,7 +19,7 @@ public class ResourceUtil {
      * @return 资源id对应的字符串
      */
     public static String getString(int id) {
-        return BaseApplication.getContext().getString(id);
+        return BaseFoundation.getContext().getString(id);
     }
 
     /**
@@ -28,7 +29,7 @@ public class ResourceUtil {
      * @return 资源id对应的字符串数组
      */
     public static String[] getStringArray(int id) {
-        return BaseApplication.getContext().getResources().getStringArray(id);
+        return BaseFoundation.getContext().getResources().getStringArray(id);
     }
 
     /**
@@ -38,6 +39,6 @@ public class ResourceUtil {
      * @return 资源id对应的字符串数组
      */
     public static int getDimension(int id) {
-        return BaseApplication.getContext().getResources().getDimensionPixelSize(id);
+        return BaseFoundation.getContext().getResources().getDimensionPixelSize(id);
     }
 }
